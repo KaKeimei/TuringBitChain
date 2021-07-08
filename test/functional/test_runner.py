@@ -191,6 +191,11 @@ def main():
     # Build list of tests
     all_scripts = get_all_scripts_from_disk(tests_dir, NON_SCRIPTS)
 
+    # Check for large block tests parameter 
+    if args.large_block_tests:
+        tests = LARGE_BLOCK_TESTS
+        args.jobs = 1
+
     if tests:
         # Individual tests have been specified. Run specified tests that exist
         # in the all_scripts list. Accept the name with or without .py

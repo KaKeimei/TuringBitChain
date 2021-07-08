@@ -1,6 +1,8 @@
-# Bitcoin SV version 1.0.6 Release Notes
+# Turing Bitchain Release Notes
 
-## List of Changes since 1.0.5
+## List of Changes since 1.0.4
+
+* [Version 1.0.5](release-notes-v1.0.5.md) - [Download](https:///github.com/TuringBitchain/) - [Source](https://github.com/TuringBitchain/tree/tbc-v1.0.5) - 2021-07-08
 
 ## Scaling Test Network (STN) Reset
 N/A
@@ -16,4 +18,3 @@ N/A
 * [Version 1.0.2](release-notes-v1.0.2.md) - [Download](https://download.bitcoinsv.io/bitcoinsv/1.0.2/) - [Source](https://github.com/bitcoin-sv/bitcoin-sv/tree/v1.0.2) - 2020-02-17
 * [Version 1.0.3](release-notes-v1.0.3.md) - [Download](https://download.bitcoinsv.io/bitcoinsv/1.0.3/) - [Source](https://github.com/bitcoin-sv/bitcoin-sv/tree/v1.0.3) - 2020-04-28
 * [Version 1.0.4](release-notes-v1.0.4.md) - [Download](https://download.bitcoinsv.io/bitcoinsv/1.0.4/) - [Source](https://github.com/bitcoin-sv/bitcoin-sv/tree/v1.0.4) - 2020-07-01
-* [Version 1.0.5](release-notes-v1.0.5.md) - [Download](https://download.bitcoinsv.io/bitcoinsv/1.0.5/) - [Source](https://github.com/bitcoin-sv/bitcoin-sv/tree/v1.0.5) - 2020-09-08

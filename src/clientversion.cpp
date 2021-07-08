@@ -48,10 +48,11 @@ const std::string CLIENT_NAME("Bitcoin SV");
 #endif
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives.
-//! $Format:%n#define GIT_ARCHIVE 1$
+//! 
+#define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "$Format:%h$"
-#define GIT_COMMIT_DATE "$Format:%cD$"
+#define GIT_COMMIT_ID "xxxxxxx"
+#define GIT_COMMIT_DATE "Tue, 8 Jul 2021 xx:xx:xx UTC+0800"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix)                   \
