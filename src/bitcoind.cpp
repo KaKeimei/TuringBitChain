@@ -65,7 +65,7 @@ void WaitForShutdown(boost::thread_group *threadGroup, const task::CCancellation
 // Start
 //
 bool AppInit(int argc, char *argv[]) {
-    RenameThread("bitcoin-main");
+    RenameThread("tbc-main");
     boost::thread_group threadGroup;
     CScheduler scheduler;
 
