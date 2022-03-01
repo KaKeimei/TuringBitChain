@@ -10,6 +10,7 @@
 #include "script/script.h"
 #include "serialize.h"
 #include "uint256.h"
+#include "hash.h"
 
 struct TxId;
 /**
@@ -145,6 +146,7 @@ public:
         READWRITE(nSequence);
     }
 
+
     friend bool operator==(const CTxIn &a, const CTxIn &b) {
         return (a.prevout == b.prevout && a.scriptSig == b.scriptSig &&
                 a.nSequence == b.nSequence);
@@ -244,12 +246,49 @@ inline void UnserializeTransaction(TxType &tx, Stream &s) {
     s >> tx.nLockTime;
 }
 
+/**
+ * specify for tx version 3 and after that
+ */
 template <typename Stream, typename TxType>
 inline void SerializeTransaction(const TxType &tx, Stream &s) {
-    s << tx.nVersion;
-    s << tx.vin;
-    s << tx.vout;
-    s << tx.nLockTime;
+    if(tx.nVersion<3) {
+        s << tx.nVersion;
+        s << tx.vin;
+        s << tx.vout;
+        s << tx.nLockTime;
+    } else {
+        s << tx.nVersion;
+        s << tx.vin;
+        SerializeCTxInV3(s, tx.vin);
+        SerializeCTxOutV3(s, tx.vout);      
+        s << tx.nLockTime;
+    }
+
+}
+
+
+template <typename Stream>
+inline void SerializeCTxInV3(Stream &s,const std::vector<CTxIn>& vin) {
+    WriteCompactSize(s, vin.size());
+    for (const CTxIn &i : vin) {
+        s << i.prevout;
+        s << SerializeHash(i.scriptSig, SER_GETHASH, 0);
+        s << i.nSequence;
+    }
+
+    return;
+}
+
+
+template <typename Stream>
+inline void SerializeCTxOutV3(Stream &s,const std::vector<CTxOut>& vout) {
+    WriteCompactSize(s, vout.size());
+    for (const CTxOut &i : vout) {
+        s << i.nValue;
+        s << SerializeHash(i.scriptPubKey, SER_GETHASH, 0);
+    }
+
+    return;
 }
 
 /**
